@@ -34,10 +34,10 @@ npx serve
 ### Construir y ejecutar
 ```bash
 # Opción 1: Docker Compose V2 (Recomendado)
-docker compose up -d
+docker compose up -d --build
 
 # Opción 2: Docker Compose V1 (Antiguo)
-docker-compose up -d
+docker-compose up -d --build
 ```
 
 La aplicación estará disponible en: http://localhost:8080
