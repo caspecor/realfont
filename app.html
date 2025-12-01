@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - RealFont</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;600;700&family=Roboto:wght@100;300;400;500;700;900&family=Open+Sans:wght@300;400;600;700&family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body class="app-body">
+
+    <header class="site-header" style="position: sticky;">
+        <div class="container" style="max-width: 100%; padding: 0 2rem;">
+            <a href="index.html" class="logo">
+                RealFont<span>.</span>
+            </a>
+            <div style="display: flex; gap: 1rem;">
+                <button id="btn-export" class="btn btn-outline">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    Exportar CSS
+                </button>
+                <button id="btn-export-tailwind" class="btn btn-outline">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    Tailwind
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <aside class="app-sidebar">
+            <div class="control-group">
+                <label for="base-size">Tamaño Base (px)</label>
+                <input type="number" id="base-size" value="16" min="8" max="32">
+                <input type="range" id="base-size-range" value="16" min="8" max="32" step="1">
+            </div>
+
+            <div class="control-group">
+                <label for="unit">Unidad</label>
+                <select id="unit">
+                    <option value="px" selected>px</option>
+                    <option value="rem">rem</option>
+                    <option value="pt">pt</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="scale-ratio">Escala / Ratio <span>1.250</span></label>
+                <select id="scale-ratio">
+                    <option value="1.067">1.067 - Minor Second</option>
+                    <option value="1.125">1.125 - Major Second</option>
+                    <option value="1.200">1.200 - Minor Third</option>
+                    <option value="1.250" selected>1.250 - Major Third</option>
+                    <option value="1.333">1.333 - Perfect Fourth</option>
+                    <option value="1.414">1.414 - Augmented Fourth</option>
+                    <option value="1.500">1.500 - Perfect Fifth</option>
+                    <option value="1.618">1.618 - Golden Ratio</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="font-family">Tipografía</label>
+                <select id="font-family">
+                    <option value="'Inter', sans-serif">Inter</option>
+                    <option value="Helvetica, sans-serif">Helvetica</option>
+                    <option value="Arial, sans-serif">Arial</option>
+                    <option value="Verdana, sans-serif">Verdana</option>
+                    <option value="'Times New Roman', serif">Times New Roman</option>
+                    <option value="'Courier New', monospace">Courier</option>
+                    <option value="Georgia, serif">Georgia</option>
+                    <option value="Impact, sans-serif">Impact</option>
+                    <option value="Palatino, serif">Palatino</option>
+                    <option value="'Roboto', sans-serif">Roboto</option>
+                    <option value="'Open Sans', sans-serif">Open Sans</option>
+                    <option value="'Poppins', sans-serif">Poppins</option>
+                    <option value="'Montserrat', sans-serif">Montserrat</option>
+                    <option value="'Lato', sans-serif">Lato</option>
+                    <option value="'Merriweather', serif">Merriweather</option>
+                    <option value="'Playfair Display', serif">Playfair Display</option>
+                    <option value="system-ui, sans-serif">System UI</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="font-weight">Peso</label>
+                <select id="font-weight">
+                    <option value="100">100 - Thin</option>
+                    <option value="200">200 - Extra Light</option>
+                    <option value="300">300 - Light</option>
+                    <option value="400" selected>400 - Regular</option>
+                    <option value="500">500 - Medium</option>
+                    <option value="600">600 - Semi Bold</option>
+                    <option value="700">700 - Bold</option>
+                    <option value="800">800 - Extra Bold</option>
+                    <option value="900">900 - Black</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="preview-text">Texto de prueba</label>
+                <input type="text" id="preview-text" value="El rápido zorro marrón salta.">
+            </div>
+        </aside>
+
+        <section class="app-preview">
+            <div class="view-toolbar">
+                <button class="view-btn active" data-view="list" title="Lista">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
+                    Lista
+                </button>
+                <button class="view-btn" data-view="desktop" title="Escritorio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Escritorio
+                </button>
+                <button class="view-btn" data-view="mobile" title="Móvil">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                        <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                    Móvil
+                </button>
+            </div>
+            <div class="preview-container" id="scale-container">
+                <!-- Scale items will be injected here -->
+            </div>
+        </section>
+    </main>
+
+    <div class="code-panel" id="code-panel">
+        <div class="code-header">
+            <h3>CSS Export</h3>
+            <button class="close-btn" id="close-code">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <div class="code-content-wrapper">
+            <button id="btn-copy-header" title="Copiar código" class="floating-copy-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+            </button>
+            <div class="code-content" id="css-output"></div>
+        </div>
+        <div class="code-footer">
+            <button id="btn-copy-code" class="btn btn-outline">Copiar</button>
+            <button id="btn-close-panel" class="btn btn-primary">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

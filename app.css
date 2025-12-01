@@ -1,0 +1,323 @@
+/* App Specific Styles */
+body.app-body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Sidebar Controls */
+.app-sidebar {
+    width: 320px;
+    background-color: white;
+    border-right: 1px solid var(--color-border);
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 10;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.control-group label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-heading);
+    display: flex;
+    justify-content: space-between;
+}
+
+.control-group label span {
+    color: var(--color-text-muted);
+    font-weight: 400;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+input[type="number"],
+input[type="text"],
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    border-radius: var(--radius-full);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+/* Preview Area */
+.app-preview {
+    flex: 1;
+    background-color: var(--color-bg);
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* View Toolbar */
+.view-toolbar {
+    display: flex;
+    background: white;
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    gap: 0.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.view-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.view-btn:hover {
+    background-color: var(--color-bg-alt);
+    color: var(--color-heading);
+}
+
+.view-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* Preview Container Modes */
+.preview-container {
+    width: 100%;
+    max-width: 900px;
+    background-color: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    padding: 3rem;
+    transition: all 0.3s ease;
+}
+
+/* Mobile View */
+.preview-container.view-mobile {
+    max-width: 375px;
+    padding: 1.5rem;
+    border-width: 8px 4px;
+    border-color: #334155;
+    border-radius: 2rem;
+}
+
+/* Desktop View */
+.preview-container.view-desktop {
+    max-width: 1200px;
+    width: 100%;
+    border-top: 24px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+/* Content Styles */
+.scale-item {
+    display: flex;
+    align-items: baseline;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+    gap: 2rem;
+}
+
+.scale-item:last-child {
+    border-bottom: none;
+}
+
+.scale-info {
+    width: 120px;
+    flex-shrink: 0;
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.scale-preview {
+    flex: 1;
+    color: var(--color-heading);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: font-size 0.2s ease;
+}
+
+/* Simulation Content */
+.sim-content {
+    text-align: left;
+}
+
+.sim-hero {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.sim-article {
+    max-width: 65ch;
+    margin: 0 auto;
+}
+
+.sim-article p {
+    margin-bottom: 1.5em;
+    line-height: 1.6;
+}
+
+/* Code Panel (Overlay) */
+.code-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.code-panel.active {
+    transform: translateX(0);
+}
+
+.code-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.code-content-wrapper {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.floating-copy-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    background: rgba(30, 30, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.floating-copy-btn:hover {
+    background: rgba(99, 102, 241, 0.9);
+}
+
+.code-content {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    background-color: #1e293b;
+    color: #e2e8f0;
+    font-family: monospace;
+    font-size: 0.875rem;
+    white-space: pre;
+    min-height: 0;
+}
+
+.code-footer {
+    flex-shrink: 0;
+    padding: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-muted);
+}
+
+.close-btn:hover {
+    color: var(--color-heading);
+}
+
+/* Responsive App */
+@media (max-width: 900px) {
+    .app-main {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .app-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+        height: auto;
+        overflow-y: visible;
+    }
+
+    .app-preview {
+        overflow-y: visible;
+        padding: 1.5rem;
+    }
+
+    body.app-body {
+        height: auto;
+        overflow: auto;
+    }
+}
