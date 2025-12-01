@@ -28,8 +28,15 @@ npx serve
 
 ## Uso con Docker
 
+### Requisitos previos
+- Tener Docker Desktop instalado y ejecutándose.
+
 ### Construir y ejecutar
 ```bash
+# Opción 1: Docker Compose V2 (Recomendado)
+docker compose up -d
+
+# Opción 2: Docker Compose V1 (Antiguo)
 docker-compose up -d
 ```
 
@@ -37,12 +44,12 @@ La aplicación estará disponible en: http://localhost:8080
 
 ### Detener
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ### Ver logs
 ```bash
-docker-compose logs -f
+docker compose logs -f
 ```
 
 ## Tecnologías
