@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // DOM Elements
+    // Updated in app.js
     const els = {
+        // ... (other elements remain)
         baseSizeInput: document.getElementById('base-size'),
         baseSizeRange: document.getElementById('base-size-range'),
         ratioSelect: document.getElementById('scale-ratio'),
@@ -24,10 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
         ratioLabel: document.querySelector('label[for="scale-ratio"] span'),
         btnExport: document.getElementById('btn-export'),
         codePanel: document.getElementById('code-panel'),
+        codeOverlay: document.getElementById('code-overlay'), // Added
         closeCode: document.getElementById('close-code'),
         cssOutput: document.getElementById('css-output'),
         viewBtns: document.querySelectorAll('.view-btn'),
-        // Converter Modal Elements
+        // ...
         btnConverter: document.getElementById('btn-converter'),
         converterModal: document.getElementById('converter-modal'),
         closeConverter: document.getElementById('close-converter'),
@@ -36,6 +39,37 @@ document.addEventListener('DOMContentLoaded', () => {
         convRem: document.getElementById('conv-rem'),
         convResultText: document.getElementById('conv-result-text')
     };
+
+    // ... (rest of functions remain unchanged until Export Buttons)
+
+    // Export Buttons
+    els.btnExport.addEventListener('click', () => {
+        const css = updateCSS();
+        els.cssOutput.textContent = css;
+        els.codeOverlay.classList.add('active'); // Changed to toggle overlay
+        document.querySelector('.code-header h3').textContent = 'CSS Export';
+    });
+
+    const btnExportTailwind = document.getElementById('btn-export-tailwind');
+    if (btnExportTailwind) {
+        btnExportTailwind.addEventListener('click', () => {
+            const tailwind = generateTailwind();
+            els.cssOutput.textContent = tailwind;
+            els.codeOverlay.classList.add('active'); // Changed to toggle overlay
+            document.querySelector('.code-header h3').textContent = 'Tailwind Config';
+        });
+    }
+
+    els.closeCode.addEventListener('click', () => {
+        els.codeOverlay.classList.remove('active'); // Changed to toggle overlay
+    });
+
+    // Close Code Panel when clicking overlay
+    els.codeOverlay.addEventListener('click', (e) => {
+        if (e.target === els.codeOverlay) {
+            els.codeOverlay.classList.remove('active');
+        }
+    });
 
     function getSize(step) {
         return state.baseSize * Math.pow(state.ratio, step);
@@ -192,28 +226,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return `// tailwind.config.js\nmodule.exports = ${JSON.stringify(config, null, 2)}`;
     }
 
-    // Export Buttons
-    els.btnExport.addEventListener('click', () => {
-        const css = updateCSS();
-        els.cssOutput.textContent = css;
-        els.codePanel.classList.add('active');
-        document.querySelector('.code-header h3').textContent = 'CSS Export';
-    });
-
-    const btnExportTailwind = document.getElementById('btn-export-tailwind');
-    if (btnExportTailwind) {
-        btnExportTailwind.addEventListener('click', () => {
-            const tailwind = generateTailwind();
-            els.cssOutput.textContent = tailwind;
-            els.codePanel.classList.add('active');
-            document.querySelector('.code-header h3').textContent = 'Tailwind Config';
-        });
-    }
-
-    els.closeCode.addEventListener('click', () => {
-        els.codePanel.classList.remove('active');
-    });
-
     // Update State
     function updateState() {
         state.baseSize = parseInt(els.baseSizeInput.value);
@@ -257,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnClosePanel = document.getElementById('btn-close-panel');
     if (btnClosePanel) {
         btnClosePanel.addEventListener('click', () => {
-            els.codePanel.classList.remove('active');
+            els.codeOverlay.classList.remove('active');
         });
     }
 

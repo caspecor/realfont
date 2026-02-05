@@ -6,6 +6,8 @@
 
 **RealFont** es una calculadora de escalas tipográficas minimalista y potente diseñada para ayudar a diseñadores y desarrolladores a crear jerarquías visuales perfectas con armonía matemática.
 
+![RealFont Screenshot](img/screenshot.png)
+
 ---
 
 ## 🚀 Características Principales
