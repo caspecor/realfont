@@ -1,65 +1,70 @@
 # RealFont
 
-Calculadora de escalas tipográficas para diseño web.
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Status](https://img.shields.io/badge/status-active-success.svg)
 
-## Características
+**RealFont** es una calculadora de escalas tipográficas minimalista y potente diseñada para ayudar a diseñadores y desarrolladores a crear jerarquías visuales perfectas con armonía matemática.
 
-- 🎨 Calculadora interactiva de escalas tipográficas
-- 📱 Vista previa en múltiples dispositivos (Lista, Escritorio, Móvil)
-- 🔤 17 tipografías disponibles (Google Fonts + fuentes del sistema)
-- 📊 Múltiples ratios de escala (Golden Ratio, Perfect Fourth, etc.)
-- 💾 Exportación a CSS y Tailwind CSS
-- ⚖️ Selector de unidades (px, rem, pt)
-- 🎯 Control de peso de fuente
+---
 
-## Uso Local
+## 🚀 Características Principales
 
-### Opción 1: Abrir directamente
-Simplemente abre `index.html` en tu navegador.
+*   **🎨 Calculadora Interactiva**: Define y visualiza tu escala tipográfica en tiempo real.
+*   **📐 Ratios Matemáticos**: Soporte para Proporción Áurea (1.618), Tercera Mayor (1.250), Cuarta Perfecta (1.333), y más.
+*   **📱 Vista Previa Multi-Dispositivo**: Comprueba cómo se ve tu tipografía en formato Lista, Escritorio y Móvil.
+*   **🔤 Biblioteca de Fuentes**: Acceso a 17 tipografías seleccionadas de Google Fonts y fuentes del sistema.
+*   **💾 Exportación de Código**: Genera CSS vainilla y configuraciones de `tailwind.config.js` con un clic.
+*   **🔄 Convertidor PX a REM**: Herramienta integrada para conversiones rápidas y bidireccionales.
+*   **⚡ Ligero y Rápido**: Construido con tecnologías web estándar para un rendimiento máximo.
 
-### Opción 2: Servidor local
+## 🛠️ Instalación y Uso
+
+### Ejecución Local
+
+Puedes ejecutar el proyecto localmente de varias formas:
+
+**Opción 1: Python (Recomendado)**
 ```bash
-# Con Python 3
 python -m http.server 8000
+# Accede a http://localhost:8000
+```
 
-# Con Node.js
+**Opción 2: Node.js**
+```bash
 npx serve
+# Accede a la URL proporcionada
 ```
 
-## Uso con Docker
-
-### Requisitos previos
-- Tener Docker Desktop instalado y ejecutándose.
-
-### Construir y ejecutar
+**Opción 3: Docker**
 ```bash
-# Opción 1: Docker Compose V2 (Recomendado)
 docker compose up -d --build
-
-# Opción 2: Docker Compose V1 (Antiguo)
-docker-compose up -d --build
+# Accede a http://localhost:8080
 ```
 
-La aplicación estará disponible en: http://localhost:8080
+## 📂 Tecnologías
 
-### Detener
-```bash
-docker compose down
-```
+*   **HTML5 & CSS3**: Estructura semántica y variables CSS modernas.
+*   **JavaScript (ES6+)**: Lógica de cliente sin frameworks pesados.
+*   **Nginx**: Servidor web optimizado para el despliegue en contenedor.
+*   **Docker**: Entorno de desarrollo y producción contenerizado.
 
-### Ver logs
-```bash
-docker compose logs -f
-```
+## 🤝 Contribuir
 
-## Tecnologías
+¡Las contribuciones son bienvenidas! Sigue estos pasos:
 
-- HTML5
-- CSS3 (Variables CSS, Flexbox)
-- JavaScript (Vanilla)
-- Google Fonts API
-- Nginx (para Docker)
+1.  Haz un Fork del proyecto.
+2.  Crea tu rama de funcionalidad (`git checkout -b feature/AmazingFeature`).
+3.  Haz Commit de tus cambios (`git commit -m 'Add some AmazingFeature'`).
+4.  Haz Push a la rama (`git push origin feature/AmazingFeature`).
+5.  Abre un Pull Request.
 
-## Licencia
+## 📄 Licencia
 
-MIT
+Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más detalles.
+
+---
+
+<p align="center">
+  Hecho con ❤️ para la comunidad de diseño y desarrollo web.
+</p>

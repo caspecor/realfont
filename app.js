@@ -26,7 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
         codePanel: document.getElementById('code-panel'),
         closeCode: document.getElementById('close-code'),
         cssOutput: document.getElementById('css-output'),
-        viewBtns: document.querySelectorAll('.view-btn')
+        viewBtns: document.querySelectorAll('.view-btn'),
+        // Converter Modal Elements
+        btnConverter: document.getElementById('btn-converter'),
+        converterModal: document.getElementById('converter-modal'),
+        closeConverter: document.getElementById('close-converter'),
+        convBase: document.getElementById('conv-base'),
+        convPx: document.getElementById('conv-px'),
+        convRem: document.getElementById('conv-rem'),
+        convResultText: document.getElementById('conv-result-text')
     };
 
     function getSize(step) {
@@ -285,6 +293,44 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Converter Logic
+    function updateConverter(source) {
+        const base = parseFloat(els.convBase.value) || 16;
+        if (source === 'px') {
+            const px = parseFloat(els.convPx.value) || 0;
+            const rem = px / base;
+            els.convRem.value = rem.toFixed(4).replace(/\.?0+$/, '');
+        } else if (source === 'rem') {
+            const rem = parseFloat(els.convRem.value) || 0;
+            const px = rem * base;
+            els.convPx.value = px.toFixed(2).replace(/\.?0+$/, '');
+        }
+
+        const pxVal = els.convPx.value || 0;
+        const remVal = els.convRem.value || 0;
+        els.convResultText.textContent = `${pxVal}px es igual a ${remVal}rem (Base: ${base}px)`;
+    }
+
+    els.btnConverter.addEventListener('click', () => {
+        els.convBase.value = state.baseSize;
+        els.converterModal.classList.add('active');
+        updateConverter('px');
+    });
+
+    els.closeConverter.addEventListener('click', () => {
+        els.converterModal.classList.remove('active');
+    });
+
+    els.converterModal.addEventListener('click', (e) => {
+        if (e.target === els.converterModal) {
+            els.converterModal.classList.remove('active');
+        }
+    });
+
+    els.convBase.addEventListener('input', () => updateConverter('px'));
+    els.convPx.addEventListener('input', () => updateConverter('px'));
+    els.convRem.addEventListener('input', () => updateConverter('rem'));
 
     // Initial Render
     render();
